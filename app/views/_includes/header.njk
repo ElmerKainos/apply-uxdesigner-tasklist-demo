@@ -1,0 +1,37 @@
+{% if data.user %}
+
+{% set serviceUrl = '/application' %}
+
+{% else %}
+{% set serviceUrl = '/has-account'%}
+
+{% endif %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+{{ govukHeader({
+    homepageUrl: "#",
+    serviceName: serviceName ,
+  serviceUrl: serviceUrl ,
+  navigation:[
+{
+
+   href:'/application/show',
+   text:"Application"
+},
+{
+
+   href:'/account/sign-out',
+   text:"Sign out"
+}] if data.user
+}) }}

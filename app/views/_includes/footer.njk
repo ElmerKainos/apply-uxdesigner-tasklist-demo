@@ -1,0 +1,35 @@
+
+{% set footerHtml %}
+<h2 class="govuk-heading-m">Get help</h2>
+
+<p class="govuk-!-font-size-16">Email:<a href="#">help@uxdesignerapplication.service.gov.uk</a><br>
+You'll get a response within 5 working days 
+
+</p>
+
+        <ul class="govuk-footer__inline-list">
+          <li class="govuk-footer__inline-list-item">
+            <a class="govuk-footer__link" href="/manage-prototype">
+              Manage your prototytpe
+            </a>
+          </li>
+          <li class="govuk-footer__inline-list-item">
+            <a class="govuk-footer__link" href="/manage-prototype/clear-data">
+           Clear data
+            </a>
+          </li>
+          <li class="govuk-footer__inline-list-item">
+            <a class="govuk-footer__link" href="/accesibility">
+          Accessibility 
+            </a>
+          </li>
+        </ul>
+{% endset %}
+
+
+
+{{ govukFooter({
+  meta:  {
+    html: footerHtml
+  }
+}) }}

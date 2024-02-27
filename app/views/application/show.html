@@ -1,0 +1,121 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName = 'Your application' %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+<h1 class="govuk-heading-l"> {{pageName}}</h1>
+
+<h1 class="govuk-heading-s govuk-!-margin-top-6 govuk-!-margin-bottom-2">Application incomplete</h1>
+
+<p class="govuk-!-margin-bottom-6">You completed 0 of 3 sections.</p>
+
+
+
+{% from "govuk/components/task-list/macro.njk" import govukTaskList %}
+<h1 class="govuk-heading-m">About you</h1>
+
+
+{{ govukTaskList({
+  idPrefix: "company-details",
+  items: [
+    
+    {
+        
+      title: {
+        text: "Personal details"
+      },
+      href: "#",
+      status: {
+        tag: {
+          text: "Not started",
+          classes: "govuk-tag--grey"
+        }
+      }
+    }
+   
+    
+  ]
+}) }}
+
+
+<h1 class="govuk-heading-m">Professional experience</h1>
+
+{{ govukTaskList({
+    idPrefix: "Professional experience",
+    items: [
+      
+      {
+          
+        title: {
+          text: "Professional  experience"
+        },
+        href: "#",
+        status: {
+          tag: {
+            text: "Not started",
+            classes: "govuk-tag--grey"
+          }
+        }
+      }
+     
+      
+    ]
+  }) }}
+
+
+  <h1 class="govuk-heading-m">Evidence</h1>
+
+{{ govukTaskList({
+    idPrefix: "company-details",
+    items: [
+      
+      {
+          
+        title: {
+          text: "Evidence"
+        },
+        href: "#",
+        status: {
+          tag: {
+            text: "Not started",
+            classes: "govuk-tag--grey"
+          }
+        }
+      }
+     
+      
+    ]
+  }) }}
+  
+
+
+
+
+
+
+
+
+
+<h1 class="govuk-heading-m">Review application</h1>
+
+
+
+
+
+
+
+
+
+{{ govukButton({
+    text: "Review and send"
+}) }}
+   
+  </div>
+</div>
+
+{% endblock %}
