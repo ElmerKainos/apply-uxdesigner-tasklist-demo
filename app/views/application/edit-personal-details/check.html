@@ -1,0 +1,137 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName = 'Check details and confirm your answers' %}
+
+{% block beforeContent %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "/application"
+}) }}
+
+
+{% endblock %}
+
+{% block content %}
+
+{% set address %}
+
+{{data.personalDetails.address.line1}} <br>
+{% if data.personalDetails.address.line2 %} 
+   {{data.personalDetails.address.line2}} <br>
+   {% endif %}
+
+{{data.personalDetails.address.town}} <br>
+
+{% if data.personalDetails.address.county %} 
+   {{data.personalDetails.address.county}} <br>
+
+{% endif %}
+{{data.personalDetails.address.postcode}} <br>
+
+
+
+
+{% endset %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">{{pageName}}</h1>
+
+ {{ govukSummaryList({
+  rows: [
+    {
+      key: {
+        text: "Your name"
+      },
+      value: {
+        text: data.personalDetails.firstName + " " + data.personalDetails.lastName
+      },
+      actions: {
+        items: [
+          {
+            href: "/application/edit-personal-details/name",
+            text: "Change",
+            visuallyHiddenText: "Your name"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Phone number"
+      },
+      value: {
+        text: data.personalDetails.telephone
+      },
+      actions: {
+        items: [
+          {
+            href: "/application/edit-personal-details/telephone",
+            text: "Change",
+            visuallyHiddenText: "your phone number"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Address"
+      },
+      value: {
+        html: address
+      },
+      actions: {
+        items: [
+          {
+            href: "/application/edit-personal-details/address",
+            text: "Change",
+            visuallyHiddenText: "Item label"
+          }
+        ]
+      }
+    }
+  ]
+ }) }}
+
+<form method="post"  novalidate>
+ 
+ {{ govukRadios({
+   name: "personalDetails[status]",
+   fieldset: {
+     legend: {
+       text: "Have you completed this section?",
+       isPageHeading: false,
+       classes: "govuk-fieldset__legend--m"
+     }
+   },
+   hint: {
+    text: "You can still do changes to completed section"
+
+   },
+   items: [
+     {
+       value: "Completed",
+       text: "Yes, I’ve completed this section"
+     },
+     {
+       value: "Incomplete",
+       text: "No, I’ll come back to it later"
+     }
+   ],
+   value: data.personalDetails.status
+ }) }}
+ 
+ {{ govukButton({
+   text: "Save and continue"
+ }) }}
+
+</form>
+  
+
+
+  </div>
+</div>
+
+{% endblock %}

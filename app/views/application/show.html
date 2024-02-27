@@ -29,11 +29,11 @@
       title: {
         text: "Personal details"
       },
-      href: "#",
+      href: "/application/edit-personal-details/name",
       status: {
         tag: {
-          text: "Not started",
-          classes: "govuk-tag--grey"
+          text: data.personalDetails.status or "Not started",
+          classes: data.personalDetails.status  | statusTag
         }
       }
     }
