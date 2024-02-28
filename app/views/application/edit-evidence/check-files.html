@@ -1,6 +1,6 @@
 {% extends "layouts/main.html" %}
 
-{% set pageName = 'Upload evidence if you have it' %}
+{% set pageName = 'Uploaded evidence' %}
 
 {% block beforeContent %}
 
@@ -20,24 +20,23 @@
 <h1 class="govuk-heading-l">{{pageName}}</h1>
 
 
-<p>For example portfolio, case study etc.</p>
+<h2 class="govuk-heading-m">Files added</h2>
 
 
-
+<p>Files go here</p>
 
 <form novalidate method="post">
-
+{{data | log }}
 {{ govukRadios({
-  name: "evidence[hasEvidence]",
-  id: "evidence[hasEvidence]",
+  name: "evidence[addMore]",
   fieldset: {
     legend: {
-      text: "Do you have evidence to upload?",
+      text: "Do you want to upload another file?",
       isPageHeading: true,
       classes: "govuk-fieldset__legend--m"
     }
   },
-  value: data.evidence.hasEvidence,
+  value: data.evidence.addMore,
   items: [
     {
       value: "Yes",
@@ -49,7 +48,6 @@
     }
   ]
 }) }}
- 
 
 
 {{ govukButton({

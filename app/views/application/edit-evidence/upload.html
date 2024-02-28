@@ -1,6 +1,6 @@
 {% extends "layouts/main.html" %}
 
-{% set pageName = 'Upload evidence if you have it' %}
+{% set pageName = 'Upload evidence' %}
 
 {% block beforeContent %}
 
@@ -27,29 +27,18 @@
 
 <form novalidate method="post">
 
-{{ govukRadios({
-  name: "evidence[hasEvidence]",
-  id: "evidence[hasEvidence]",
-  fieldset: {
-    legend: {
-      text: "Do you have evidence to upload?",
-      isPageHeading: true,
-      classes: "govuk-fieldset__legend--m"
-    }
+{{ govukFileUpload({
+  id: "evidence[file]",
+  name: "evidence[file]",
+  label: {
+    text: "Upload a file",
+   
+    classes: "govuk-label--m"
   },
-  value: data.evidence.hasEvidence,
-  items: [
-    {
-      value: "Yes",
-      text: "Yes"
-    },
-    {
-      value: "No",
-      text: "No"
-    }
-  ]
+  hint: {
+    text: "Must be smaller than 100MB"
+  }
 }) }}
- 
 
 
 {{ govukButton({
