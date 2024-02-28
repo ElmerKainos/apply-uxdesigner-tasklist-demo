@@ -54,11 +54,11 @@
         title: {
           text: "Professional  experience"
         },
-        href: "#",
+        href: "/application/edit-experience/years-of-experience",
         status: {
           tag: {
-            text: "Not started",
-            classes: "govuk-tag--grey"
+            text: data.experience.status or "Not started" ,
+            classes: data.experience.status | statusTag
           }
         }
       }
