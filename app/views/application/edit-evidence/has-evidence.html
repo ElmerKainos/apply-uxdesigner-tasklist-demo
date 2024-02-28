@@ -1,0 +1,75 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName = 'Upload evidence if you have it' %}
+
+{% block beforeContent %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history .back()"
+}) }}
+
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <span class="govuk-caption-l">Evidence</span>
+<h1 class="govuk-heading-l">{{pageName}}</h1>
+
+
+<p>For example portfolio, case study etc.</p>
+
+
+
+
+<form novalidate method="post">
+
+{{ govukRadios({
+  name: "evidence[hasEvidence]",
+  id: "evidence[hasEvidence]",
+  fieldset: {
+    legend: {
+      text: pageName,
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  value: data.experience.yearsOfExperience,
+  items: [
+    {
+      value: "Yes",
+      text: "Yes"
+    },
+    {
+      value: "No",
+      text: "No"
+    }
+  ]
+}) }}
+ 
+
+
+{{ govukButton({
+  text: "Save and continue"
+}) }}
+
+
+
+
+
+
+
+
+
+
+</form>
+  
+
+
+  </div>
+</div>
+
+{% endblock %}
