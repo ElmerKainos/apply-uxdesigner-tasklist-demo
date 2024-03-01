@@ -1,0 +1,30 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName = 'Your application' %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+<h1 class="govuk-heading-l"> {{pageName}}</h1>
+
+
+<p>You sent your application on {{sentDate}} .</p>
+<p>If you need to make any changes, sent an email to:<br>
+<a href="mailto:">help@uxdesigner.license.service.gov.uk</a></p>
+
+<h2 class="govuk-heading-m">Personal details</h2>
+{% include "./edit-personal-details/_answers.html" %}
+
+<h2 class="govuk-heading-m">Professional experience</h2>
+{% include "./edit-experience/_answers.html" %}
+
+<h2 class="govuk-heading-m">Evidence</h2>
+{% include "./edit-evidence/_answers.html" %}
+   
+  </div>
+</div>
+
+{% endblock %}

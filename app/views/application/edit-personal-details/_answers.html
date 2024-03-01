@@ -1,0 +1,81 @@
+{% set address %}
+
+{{data.personalDetails.address.line1}} <br>
+{% if data.personalDetails.address.line2 %} 
+   {{data.personalDetails.address.line2}} <br>
+   {% endif %}
+
+{{data.personalDetails.address.town}} <br>
+
+{% if data.personalDetails.address.county %} 
+   {{data.personalDetails.address.county}} <br>
+
+{% endif %}
+{{data.personalDetails.address.postcode}} <br>
+
+
+
+
+{% endset %}
+
+
+
+
+
+
+
+{{ govukSummaryList({
+    rows: [
+      {
+        key: {
+          text: "Your name"
+        },
+        value: {
+          text: data.personalDetails.firstName + " " + data.personalDetails.lastName
+        },
+        actions: {
+          items: [
+            {
+              href: "/application/edit-personal-details/name",
+              text: "Change",
+              visuallyHiddenText: "Your name"
+            }
+          ]
+        }if not data.sentDate
+      },
+      {
+        key: {
+          text: "Phone number"
+        },
+        value: {
+          text: data.personalDetails.telephone
+        },
+        actions: {
+          items: [
+            {
+              href: "/application/edit-personal-details/telephone",
+              text: "Change",
+              visuallyHiddenText: "your phone number"
+            }
+          ]
+        }if not data.sentDate
+      },
+      {
+        key: {
+          text: "Address"
+        },
+        value: {
+          html: address
+        },
+        actions: {
+          items: [
+            {
+              href: "/application/edit-personal-details/address",
+              text: "Change",
+              visuallyHiddenText: "Item label"
+            }
+          ]
+        }if not data.sentDate
+      }
+    ]
+   }) }}

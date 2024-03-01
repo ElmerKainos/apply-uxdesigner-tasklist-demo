@@ -1,6 +1,6 @@
 {% extends "layouts/main.html" %}
 
-{% set pageName = 'Upload evidence' %}
+{% set pageName = "Confirm that you want to delete "  + file.filename %}
 
 {% block beforeContent %}
 
@@ -20,43 +20,23 @@
 <h1 class="govuk-heading-l">{{pageName}}</h1>
 
 
-<p>For example portfolio, case study etc.</p>
 
+{{data|log}}
 
 
 
 <form novalidate method="post">
 
-{{ govukFileUpload({
-  id: "evidence[file]",
-  name: "evidence[file]",
-  label: {
-    text: "Upload files",
-   
-    classes: "govuk-label--m"
-  },
-  hint: {
-    text: "Must be smaller than 100MB"
-  }
-}) }}
-
 
 {{ govukButton({
-  text: "Save and continue"
+  text: "Delete file",
+  classes: 'govuk-button--warning'
 }) }}
-
-
-
-
-
-
-
-
 
 
 </form>
   
-
+<p> <a href="/application/edit-evidence/check-files">Cancel </a> </p>
 
   </div>
 </div>

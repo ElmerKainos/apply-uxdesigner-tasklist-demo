@@ -1,0 +1,55 @@
+{{ govukSummaryList({
+  rows: [
+    {
+      key: {
+        text: "How many years of experience you have in UX Design?"
+      },
+      value: {
+        text: data.experience.yearsOfExperience
+      },
+      actions: {
+        items: [
+          {
+            href: "/application/edit-experience/years-of-experience",
+            text: "Change",
+            visuallyHiddenText: "The years of your experience in UX design"
+          } 
+        ]
+      } if not data.sentDate
+    },
+    {
+      key: {
+        text: "What is the area of your expertise?"
+      },
+      value: {
+        text: data.experience.expertise
+      },
+      actions: {
+        items: [
+          {
+            href: "/application/edit-experience/expertise",
+            text: "Change",
+            visuallyHiddenText: "The area of your expertise"
+          }
+        ]
+      }if not data.sentDate
+    },
+    {
+      key: {
+        text: "When did you start working as user experience designer?"
+      },
+      value: {
+        html: data.experience.startDate | isoDateFromDateInput | govukDate 
+      },
+      actions: {
+        items: [
+          {
+            href: "/application/edit-experience/start-date",
+            text: "Change",
+            visuallyHiddenText: "When you started working as users experience designer"
+          }
+        ]
+      }if not data.sentDate
+    }
+  ]
+ }) }}

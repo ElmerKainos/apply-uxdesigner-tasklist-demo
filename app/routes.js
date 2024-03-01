@@ -5,10 +5,16 @@
 
 const govukPrototypeKit = require('govuk-prototype-kit')
 const router = govukPrototypeKit.requests.setupRouter()
+const flash = require('connect-flash')
 
-// Add your routes here
+router.use(flash())
 
+router.all('*', (req, res, next) => {
 
+      res.locals.flash = req.flash('success')
+      next()
+
+})
 
 router.post ('/has-account', (req,res) => {
 if (req.session.data.new.hasAccount == 'No') {
@@ -67,8 +73,8 @@ router.post ('/code', (req,res) => {
 
 
 
-
 require('./routes/application/show')(router)
+require('./routes/application/check')(router)
 require('./routes/application/edit-personal-details')(router)
 require('./routes/application/edit-experience')(router)
 require('./routes/application/edit-evidence')(router)

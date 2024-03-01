@@ -1,0 +1,43 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName = 'Application sent' %}
+
+{% block beforeContent %}
+
+
+
+{% endblock %}
+
+{% block content %}
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    
+    {{ govukPanel({
+      titleText: pageName,
+      html: "Your reference number is<br><strong>HDJ2123F</strong>"
+
+
+      
+     }) }}
+
+     {{data | log}}
+    <p> We have sent you a confirmation email.</p>
+  
+    <h1 class="govuk-heading-m">What happens next</h1>
+  
+    <p>We've sent your application to the GOV.UK Design Regulation Office.</p>
+    <p>They'll contact you about the outcome of your application within 2 weeks.</p>
+  
+  
+    <h1 class="govuk-heading-m"> Give feedback (takes 30 seconds)</h1>
+  
+    <p><a href="#">Start survey </a></p>
+
+
+  </div>
+</div>
+
+{% endblock %}

@@ -10,15 +10,18 @@
 
 <h1 class="govuk-heading-l"> {{pageName}}</h1>
 
-<h1 class="govuk-heading-s govuk-!-margin-top-6 govuk-!-margin-bottom-2">Application incomplete</h1>
+{% if  completedSectionsCount < 3%}
 
-<p class="govuk-!-margin-bottom-6">You completed 0 of 3 sections.</p>
+<h2 class="govuk-heading-s govuk-!-margin-top-6 govuk-!-margin-bottom-2">Application incomplete</h2>
 
+<p class="govuk-!-margin-bottom-6">You completed {{completedSectionsCount}} of 3 sections.</p>
 
+{% endif %}
 
 {% from "govuk/components/task-list/macro.njk" import govukTaskList %}
 <h1 class="govuk-heading-m">About you</h1>
 
+{{data | log }}
 
 {{ govukTaskList({
   idPrefix: "company-details",
@@ -82,8 +85,8 @@
         href: "/application/edit-evidence/has-evidence",
         status: {
           tag: {
-            text: "Not started",
-            classes: "govuk-tag--grey"
+            text:  data.evidence.status or "Not started",
+            classes: data.evidence.status | statusTag
           }
         }
       }
@@ -112,7 +115,8 @@
 
 
 {{ govukButton({
-    text: "Review and send"
+    text: "Review and send",
+    href: "/application/check"
 }) }}
    
   </div>
