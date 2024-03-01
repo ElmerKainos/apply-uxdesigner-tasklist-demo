@@ -11,7 +11,7 @@
 <h1 class="govuk-heading-l"> {{pageName}}</h1>
 
 
-<p>You sent your application on {{sentDate}} .</p>
+<p>You sent your application on {{data.sentDate | govukDate}}  at  {{data.sentDate | govukTime}}.</p>
 <p>If you need to make any changes, sent an email to:<br>
 <a href="mailto:">help@uxdesigner.license.service.gov.uk</a></p>
 
