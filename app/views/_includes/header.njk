@@ -1,11 +1,4 @@
-{% if data.user %}
 
-{% set serviceUrl = '/application' %}
-
-{% else %}
-{% set serviceUrl = '/has-account'%}
-
-{% endif %}
 
 
 
@@ -27,3 +20,12 @@
    text:"Sign out"
 }] if data.user
 }) }}
+
+{% if data.user %}
+
+{% set serviceUrl = '/application' %}
+
+{% else %}
+{% set serviceUrl = '/has-account'%}
+
+{% endif %}
