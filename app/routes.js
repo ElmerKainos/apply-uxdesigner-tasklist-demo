@@ -54,7 +54,7 @@ router.post ('/email', (req,res) => {
       
  })
 router.post ('/code', (req,res) => {
-            req.session.data.user ={  }
+            req.session.data.user ={ }
             res.redirect('/application')
             
             

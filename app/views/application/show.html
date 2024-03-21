@@ -35,8 +35,8 @@
       href: "/application/edit-personal-details/name",
       status: {
         tag: {
-          text: data.personalDetails.status or "Not started",
-          classes: data.personalDetails.status  | statusTag
+          text: personalDetailsStatus,
+          classes: personalDetailsStatus | statusTag
         }
       }
     }
@@ -60,8 +60,8 @@
         href: "/application/edit-experience/years-of-experience",
         status: {
           tag: {
-            text: data.experience.status or "Not started" ,
-            classes: data.experience.status | statusTag
+            text: experienceStatus  ,
+            classes: experienceStatus | statusTag
           }
         }
       }
@@ -85,8 +85,8 @@
         href: "/application/edit-evidence/has-evidence",
         status: {
           tag: {
-            text:  data.evidence.status or "Not started",
-            classes: data.evidence.status | statusTag
+            text:  evidenceStatus,
+            classes: evidenceStatus | statusTag
           }
         }
       }
